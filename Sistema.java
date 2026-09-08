@@ -1,15 +1,33 @@
 public class Sistema {
     public static void main(String[] args) {
-        String n = "Carlos";
-        double a = 8;
-        double b = 7;
-        double c = (a + b) / 2;
-        System.out.println("Aluno: " + n);
-        System.out.println("Media: " + c);
-        if (c >= 6) {
-            System.out.println("Aprovado");
+        String nomeAluno = "Carlos";
+        double primeiraNota = 8.0;
+        double segundaNota = 7.0;
+
+        double mediaFinal = calcularMedia(primeiraNota, segundaNota);
+        String situacao = verificarSituacao(mediaFinal);
+
+        apresentarResultados(nomeAluno, mediaFinal, situacao);
+    }
+
+    // Método responsável apenas por calcular a média
+    public static double calcularMedia(double nota1, double nota2) {
+        return (nota1 + nota2) / 2.0;
+    }
+
+    // Método responsável por verificar se o aluno está aprovado ou reprovado
+    public static String verificarSituacao(double media) {
+        if (media >= 6.0) {
+            return "Aprovado";
         } else {
-            System.out.println("Reprovado");
+            return "Reprovado";
         }
+    }
+
+    // Método responsável pela exibição dos dados
+    public static void apresentarResultados(String nome, double media, String situacao) {
+        System.out.println("Aluno: " + nome);
+        System.out.println("Media: " + media);
+        System.out.println("Situação: " + situacao);
     }
 }
